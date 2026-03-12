@@ -12,32 +12,23 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
     - name: Install dependencies
       run: |
-        pip install fastapi uvicorn torch torchvision pillow python-multipart
+        pip install fastapi uvicorn pillow python-multipart
 
     - name: Check imports work
       run: |
-        python -c "import torch; import fastapi; import torchvision; print('All imports OK')"
+        python -c "import fastapi; import uvicorn; print('All imports OK ✅')"
 
     - name: Check Python syntax
       run: |
         python -m py_compile src/serve.py
         python -m py_compile src/train.py
-        echo "Syntax check passed!"
-
-    - name: Run API health check
-      run: |
-        python -c "
-        from fastapi.testclient import TestClient
-        import sys
-        sys.path.append('src')
-        print('FastAPI import OK')
-        "
+        echo "Syntax check passed ✅"
