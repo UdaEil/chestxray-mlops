@@ -1,0 +1,7 @@
+data/
+mlruns/
+models/
+__pycache__/
+*.pt
+*.pyc
+.dvc/tmp

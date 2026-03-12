@@ -1,0 +1,37 @@
+# Base image — Python 3.11
+FROM python:3.11-slim
+
+# Set working directory inside container
+WORKDIR /app
+
+# Copy requirements and install libraries
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project files into container
+COPY src/ ./src/
+COPY models/ ./models/
+
+# Fix model path for container environment
+ENV MODEL_PATH=/app/models/best_model.pt
+
+# Expose port 8000
+EXPOSE 8000
+
+# Run the API
+CMD ["uvicorn", "src.serve:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+---
+
+## Step 3 — Create .dockerignore
+
+Create `.dockerignore` in project root and paste:
+```
+data/
+.git/
+.dvc/
+__pycache__/
+*.pyc
+mlruns/
+notebooks/
