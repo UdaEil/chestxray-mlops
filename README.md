@@ -38,7 +38,7 @@ dvc repro re-executes only the stages whose inputs have changed, so re-running a
 
 Data
 
-[Confirm source. If it is the same dataset as the teaching repository:] Chest X-Ray Images (Pneumonia) dataset (Kermany et al., 2018), available on Kaggle under CC BY 4.0. Images are publicly available and anonymised; no identifiable patient information is included.
+Chest X-Ray Images (Pneumonia) dataset (Kermany et al., 2018), available on Kaggle under CC BY 4.0. Images are publicly available and anonymised; no identifiable patient information is included.
 
 Data is not committed to this repository — it is tracked with DVC and pulled separately.
 
